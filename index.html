@@ -1,106 +1,162 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Il Mio Portfolio GitHub</title>
+    <title>Portfolio Bulma Custom</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <style>
-      /* Personalizzazione Palette */
-      :root {
-        --bg-gray: #2c2c2c;
-        --card-black: #1a1a1a;
-        --lilla-accent: #b19cd9;
-        --white-soft: #f5f5f5;
+      [data-theme="dark"] {
+        --bg-body: #2c2c2c; /* Grigio Background */
+        --bg-card: #1a1a1a; /* Nero Risaltato */
+        --text-main: #ffffff; /* Bianco */
+        --btn-bg: #ffffff; /* Bottone non acceso */
+        --btn-text: #1a1a1a;
+        --lilla: #b19cd9; /* Accent */
       }
 
+      [data-theme="light"] {
+        --bg-body: #f5f5f5; /* Grigio chiarissimo */
+        --bg-card: #ffffff; /* Bianco risaltato */
+        --text-main: #1a1a1a; /* Nero */
+        --btn-bg: #1a1a1a; /* Nero per contrasto su light */
+        --btn-text: #ffffff;
+        --lilla: #8a64d1; /* Lilla leggermente più scuro per leggibilità */
+      }
+
+      /* Applicazione Stili */
       body {
-        background-color: var(--bg-gray);
-        color: var(--white-soft);
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        transition: all 0.3s ease;
         min-height: 100vh;
       }
 
       .navbar,
       .footer {
-        background-color: var(--card-black) !important;
+        background-color: var(--bg-card) !important;
+        border-bottom: 1px solid var(--lilla);
       }
 
       .navbar-item,
       .title,
-      .label {
-        color: var(--white-soft) !important;
+      .subtitle {
+        color: var(--text-main) !important;
       }
 
       .card {
-        background-color: var(--card-black);
-        border: 1px solid #333;
-        color: var(--white-soft);
+        background-color: var(--bg-card);
+        color: var(--text-main);
+        border: 1px solid rgba(177, 156, 217, 0.2);
+        transition: transform 0.2s;
       }
 
-      /* Bottoni: Bianco di base, Lilla al passaggio/active */
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--lilla);
+      }
+
+      /* Bottone Custom: Bianco (o Nero) -> Lilla */
       .button.is-custom {
-        background-color: var(--white-soft);
-        color: var(--card-black);
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
         border: none;
-        transition: 0.3s ease;
+        font-weight: bold;
       }
 
       .button.is-custom:hover {
-        background-color: var(--lilla-accent);
-        color: #fff;
+        background-color: var(--lilla);
+        color: white;
       }
 
       .has-text-lilla {
-        color: var(--lilla-accent) !important;
+        color: var(--lilla) !important;
       }
 
-      .hero.is-dark-custom {
-        background-color: var(--card-black);
+      /* Switch Theme Button */
+      #theme-toggle {
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid var(--lilla);
+        color: var(--lilla);
+        border-radius: 5px;
+        padding: 5px 15px;
       }
     </style>
   </head>
   <body>
-    <nav class="navbar shadow">
+    <nav class="navbar px-4">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item is-size-4 has-text-weight-bold has-text-lilla"
-            >DevName</a
+            >DEV.IO</a
           >
+        </div>
+        <div class="navbar-end is-flex is-align-items-center">
+          <button id="theme-toggle">Cambia Tema</button>
         </div>
       </div>
     </nav>
 
-    <section class="hero is-medium">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title is-1">
-            Benvenuti sul mio <span class="has-text-lilla">GitHub</span>
-          </h1>
-          <p class="subtitle has-text-grey-light">
-            Developer | Designer | Creative Mind
-          </p>
-          <button class="button is-custom is-large">Scopri i Progetti</button>
+    <section class="section">
+      <div class="container has-text-centered">
+        <h1 class="title is-1">
+          Benvenuti nel mio <span class="has-text-lilla">Spazio</span>
+        </h1>
+        <p class="subtitle mt-2">Design pulito, codice sporco (scherzo!).</p>
+        <div class="buttons is-centered mt-5">
+          <button class="button is-custom is-medium">I Miei Lavori</button>
+          <button
+            class="button is-outline is-light"
+            style="
+              background: transparent;
+              border: 1px solid var(--lilla);
+              color: var(--lilla);
+            "
+          >
+            Contattami
+          </button>
         </div>
       </div>
     </section>
 
     <div class="container px-4">
-      <div class="columns is-multiline">
+      <div class="columns is-centered">
         <div class="column is-4">
           <div class="card p-5">
-            <h3 class="title is-4 has-text-lilla">Progetto Alfa</h3>
-            <p>
-              Descrizione del repository. Un'applicazione incredibile costruita
-              con Bulma e amore.
-            </p>
-            <br />
-            <a href="#" class="button is-small is-custom">View Repo</a>
+            <h3 class="title is-4 has-text-lilla">GitHub Project</h3>
+            <p>Un esempio di card che risalta sul background grigio.</p>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Script per il Cambio Tema -->
+    <script>
+      const btn = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      btn.addEventListener("click", () => {
+        if (html.getAttribute("data-theme") === "dark") {
+          html.setAttribute("data-theme", "light");
+          btn.innerText = "Modalità Scura 🌙";
+        } else {
+          html.setAttribute("data-theme", "dark");
+          btn.innerText = "Modalità Chiara ☀️";
+        }
+      });
+
+      // Opzionale: Rileva preferenza sistema al caricamento
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches
+      ) {
+        html.setAttribute("data-theme", "light");
+        btn.innerText = "Modalità Scura 🌙";
+      }
+    </script>
   </body>
 </html>
