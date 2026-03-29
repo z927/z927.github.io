@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="it" data-theme="dark">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neon Synth Portfolio</title>
+    <title>zasi.dev | Software Developer</title>
     <!-- Bulma CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <!-- Google Fonts: Montserrat per un look moderno e pulito -->
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
       rel="stylesheet"
@@ -19,232 +19,279 @@
 
     <style>
       :root {
-        /* Palette Neon Dark */
-        --bg-color: #3d3d3d; /* Grigio non troppo scuro */
-        --container-bg: #121212; /* Nero non puro */
-        --text-color: #fdfaf6; /* Bianco avorio (non puro) */
-        --accent-lilla: #d4a5ff; /* Lilla Neon */
+        --bg-color: #3d3d3d;
+        --container-bg: #121212;
+        --text-color: #fdfaf6;
+        --accent-lilla: #d4a5ff;
+        --accent-green: #39ff14; /* Verde Neon */
         --accent-glow: rgba(212, 165, 255, 0.6);
-        --border-glow: 0 0 10px var(--accent-glow),
-          0 0 20px rgba(212, 165, 255, 0.2);
+        --green-glow: rgba(57, 255, 20, 0.6);
         --transition-speed: 0.4s;
       }
 
       [data-theme="light"] {
-        /* Palette Neon Light */
-        --bg-color: #ececec; /* Grigio chiaro */
-        --container-bg: #ffffff; /* Bianco puro per risaltare */
-        --text-color: #2c2c2c; /* Nero non puro */
-        --accent-lilla: #9b4dff; /* Lilla più profondo */
+        --bg-color: #ececec;
+        --container-bg: #ffffff;
+        --text-color: #2c2c2c;
+        --accent-lilla: #9b4dff;
+        --accent-green: #2dbd0d; /* Verde più scuro per contrasto su light */
         --accent-glow: rgba(155, 77, 255, 0.3);
-        --border-glow: 0 0 8px var(--accent-glow);
+        --green-glow: rgba(45, 189, 13, 0.2);
       }
 
       body {
-        background-color: var(--bg-color);
+        background-color: var(--container-bg);
         color: var(--text-color);
         font-family: "Montserrat", sans-serif;
-        transition: background-color var(--transition-speed),
-          color var(--transition-speed);
+        transition: all var(--transition-speed);
         min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
       }
 
-      /* Navigazione Neon */
+      /* Layout Container */
+      .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0 10%;
+        position: relative;
+      }
+
+      /* Navbar */
       .navbar {
-        background-color: var(--container-bg) !important;
-        border-bottom: 2px solid var(--accent-lilla);
-        box-shadow: var(--border-glow);
+        background: transparent !important;
+        padding: 2rem 5%;
       }
 
       .navbar-item {
         color: var(--text-color) !important;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.3s;
       }
 
-      /* Contenitori Neon */
-      .neon-card {
-        background-color: var(--container-bg);
-        border: 2px solid var(--accent-lilla);
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: var(--border-glow);
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-
-      .neon-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 20px var(--accent-lilla),
-          0 0 40px rgba(212, 165, 255, 0.4);
-      }
-
-      /* Testo Neon */
-      .neon-title {
-        color: var(--text-color);
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: -2px;
-        text-shadow: 2px 2px 0px var(--accent-lilla);
-      }
-
-      .has-text-neon {
+      .navbar-item:hover {
         color: var(--accent-lilla) !important;
-        text-shadow: 0 0 5px var(--accent-glow);
+        background: transparent !important;
       }
 
-      /* Pulsanti Neon */
-      .button.is-neon {
-        background-color: transparent;
-        border: 2px solid var(--accent-lilla);
+      /* Left Side: Content */
+      .hero-text {
+        max-width: 600px;
+        z-index: 2;
+      }
+
+      .hi-text {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+
+      .name-text {
         color: var(--accent-lilla);
+        text-shadow: 0 0 15px var(--accent-glow);
+      }
+
+      .role-text {
+        font-size: 1.8rem;
         font-weight: 700;
-        text-transform: uppercase;
-        box-shadow: var(--border-glow);
+        color: var(--accent-green);
+        text-shadow: 0 0 10px var(--green-glow);
+        border-right: 3px solid var(--accent-green);
+        display: inline-block;
+        padding-right: 10px;
+        margin: 1rem 0;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 1.6;
+        opacity: 0.8;
+        margin-bottom: 2rem;
+      }
+
+      /* Buttons */
+      .button.is-lilla {
+        background-color: var(--accent-lilla);
+        color: var(--container-bg);
+        border: none;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+
+      .button.is-outline-neon {
+        background: transparent;
+        border: 2px solid var(--accent-lilla);
+        color: var(--text-color);
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        font-weight: 700;
+      }
+
+      /* Right Side: Avatar */
+      .hero-image {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45%;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+      }
+
+      .avatar-img {
+        max-width: 100%;
+        height: auto;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 85%,
+          rgba(0, 0, 0, 0)
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 85%,
+          rgba(0, 0, 0, 0)
+        );
+        filter: drop-shadow(0 0 20px var(--accent-glow));
+      }
+
+      /* Footer: Socials */
+      .social-footer {
+        padding: 2rem 10%;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        border: 2px solid var(--accent-lilla);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-lilla);
         transition: all 0.3s;
       }
 
-      .button.is-neon:hover {
-        background-color: var(--accent-lilla);
+      .social-icon:hover {
+        background: var(--accent-lilla);
         color: var(--container-bg);
-        box-shadow: 0 0 30px var(--accent-lilla);
+        box-shadow: 0 0 15px var(--accent-lilla);
+        transform: translateY(-5px);
       }
 
-      /* Theme Toggle Icon Button */
-      .theme-toggle-btn {
+      /* Theme Toggle Fixed */
+      .theme-toggle {
+        position: fixed;
+        top: 2.2rem;
+        right: 2rem;
+        z-index: 1000;
         background: var(--accent-lilla);
         border: none;
-        color: var(--container-bg);
-        padding: 10px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: var(--border-glow);
-        transition: transform 0.3s;
-      }
-
-      .theme-toggle-btn:hover {
-        transform: rotate(15deg) scale(1.1);
-      }
-
-      /* Sezione Hero */
-      .hero-section {
-        padding: 100px 0;
-      }
-
-      .hero-subtitle {
-        font-size: 1.2rem;
-        opacity: 0.8;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      /* Griglia */
-      .project-tag {
-        display: inline-block;
-        background: var(--accent-lilla);
         color: var(--container-bg);
-        padding: 2px 10px;
-        font-size: 0.7rem;
-        font-weight: 900;
-        margin-bottom: 10px;
-        border-radius: 4px;
+      }
+
+      @media (max-width: 1024px) {
+        .main-content {
+          flex-direction: column;
+          padding-top: 8rem;
+          text-align: center;
+        }
+        .hero-image {
+          position: relative;
+          right: auto;
+          top: auto;
+          transform: none;
+          width: 80%;
+          margin-top: 3rem;
+        }
+        .hi-text {
+          font-size: 2.5rem;
+        }
+        .social-footer {
+          justify-content: center;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- Navigazione -->
-    <nav class="navbar px-5 py-2">
-      <div
-        class="container is-flex is-justify-content-space-between is-align-items-center"
-      >
-        <div class="navbar-brand">
-          <span
-            class="navbar-item is-size-4 neon-title"
-            style="text-shadow: none"
-            >Retro<span class="has-text-neon">Dev</span></span
-          >
-        </div>
-        <div class="is-flex is-align-items-center">
-          <a href="#" class="navbar-item is-hidden-mobile mr-4">Lavori</a>
-          <button id="theme-btn" class="theme-toggle-btn">
-            <i data-lucide="moon" id="theme-icon"></i>
-          </button>
+    <button id="theme-btn" class="theme-toggle">
+      <i data-lucide="moon" id="theme-icon"></i>
+    </button>
+
+    <nav class="navbar">
+      <div class="container is-flex is-justify-content-flex-end">
+        <div class="is-flex">
+          <a href="#" class="navbar-item">Home</a>
+          <a href="#" class="navbar-item">About</a>
+          <a href="#" class="navbar-item">Education</a>
+          <a href="#" class="navbar-item">Skills</a>
+          <a href="#" class="navbar-item">Portfolio</a>
+          <a href="#" class="navbar-item">Contact</a>
         </div>
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero-section has-text-centered">
-      <div class="container px-4">
-        <h1 class="title is-size-1 neon-title mb-6">
-          Cyber <span class="has-text-neon">Portfolio</span>
+    <main class="main-content">
+      <div class="hero-text">
+        <h1 class="hi-text">
+          Hi, I'm <br />
+          <span class="name-text">zasi.dev</span>
         </h1>
-        <p class="hero-subtitle mb-6">
-          Costruisco esperienze digitali con un'estetica nostalgica e codice
-          moderno. Benvenuti nel mio nodo della rete.
+        <div class="role-text">Software Developer</div>
+        <p class="description">
+          As a dedicated Software Engineer, I'm passionate about the art of
+          coding and the science of problem-solving. With a strong foundation in
+          computer science and a creative approach to development, I thrive on
+          turning complex ideas into elegant, functional software solutions.
+          Welcome to my portfolio, where you can explore my journey in
+          transforming ideas into digital reality.
         </p>
-        <div class="buttons is-centered">
-          <button class="button is-neon is-large">Inizia Missione</button>
+        <div class="buttons">
+          <button class="button is-lilla">Hire Me</button>
+          <button class="button is-outline-neon ml-4">MY CV</button>
         </div>
       </div>
-    </section>
 
-    <!-- Progetti -->
-    <section class="section">
-      <div class="container">
-        <div class="columns is-multiline">
-          <!-- Card Progetto 1 -->
-          <div class="column is-4">
-            <div class="neon-card">
-              <span class="project-tag">WEB APP</span>
-              <h3 class="title is-4 has-text-neon mb-3">NeonDrive</h3>
-              <p class="mb-5">
-                Un'interfaccia di gestione file con visualizzazione a griglia al
-                neon.
-              </p>
-              <button class="button is-neon is-small is-fullwidth">
-                Visualizza
-              </button>
-            </div>
-          </div>
-
-          <!-- Card Progetto 2 -->
-          <div class="column is-4">
-            <div class="neon-card">
-              <span class="project-tag">UI KIT</span>
-              <h3 class="title is-4 has-text-neon mb-3">SynthUI</h3>
-              <p class="mb-5">
-                Libreria di componenti React ispirata ai sintetizzatori degli
-                anni '80.
-              </p>
-              <button class="button is-neon is-small is-fullwidth">
-                Visualizza
-              </button>
-            </div>
-          </div>
-
-          <!-- Card Progetto 3 -->
-          <div class="column is-4">
-            <div class="neon-card">
-              <span class="project-tag">GAME</span>
-              <h3 class="title is-4 has-text-neon mb-3">GridRunner</h3>
-              <p class="mb-5">
-                Gioco arcade veloce sviluppato per browser in puro JavaScript.
-              </p>
-              <button class="button is-neon is-small is-fullwidth">
-                Visualizza
-              </button>
-            </div>
-          </div>
-        </div>
+      <div class="hero-image">
+        <!-- SOSTITUISCI 'Avatar.png' con il tuo file effettivo -->
+        <img
+          src="Avatar.png"
+          alt="zasi.dev Avatar"
+          class="avatar-img"
+          onerror="this.src='https://via.placeholder.com/500x600/121212/d4a5ff?text=Avatar+Pixel'"
+        />
       </div>
-    </section>
+    </main>
+
+    <footer class="social-footer">
+      <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+      <a href="#" class="social-icon"><i data-lucide="github"></i></a>
+      <a href="#" class="social-icon"><i data-lucide="linkedin"></i></a>
+    </footer>
 
     <script>
-      // Inizializza Icone
       lucide.createIcons();
 
       const themeBtn = document.getElementById("theme-btn");
@@ -254,34 +301,15 @@
       themeBtn.addEventListener("click", () => {
         const currentTheme = html.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
-
         html.setAttribute("data-theme", newTheme);
 
-        // Cambia Icona
         if (newTheme === "light") {
           themeIcon.setAttribute("data-lucide", "sun");
-          themeBtn.style.background = "#9b4dff"; // Lilla scuro per contrasto su light
         } else {
           themeIcon.setAttribute("data-lucide", "moon");
-          themeBtn.style.background = "#d4a5ff";
         }
-
-        // Refresh icone Lucide
         lucide.createIcons();
-
-        // Salva preferenza
-        localStorage.setItem("neon-theme", newTheme);
       });
-
-      // Carica preferenza salvata
-      const savedTheme = localStorage.getItem("neon-theme");
-      if (savedTheme) {
-        html.setAttribute("data-theme", savedTheme);
-        if (savedTheme === "light") {
-          themeIcon.setAttribute("data-lucide", "sun");
-          lucide.createIcons();
-        }
-      }
     </script>
   </body>
 </html>
