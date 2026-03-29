@@ -1,0 +1,215 @@
+:root {
+  --bg-color: #3d3d3d;
+  --container-bg: #121212;
+  --text-color: #fdfaf6;
+  --accent-lilla: #d4a5ff;
+  --accent-green: #39ff14; /* Verde Neon */
+  --accent-glow: rgba(212, 165, 255, 0.6);
+  --green-glow: rgba(57, 255, 20, 0.6);
+  --transition-speed: 0.4s;
+}
+
+[data-theme="light"] {
+  --bg-color: #ececec;
+  --container-bg: #ffffff;
+  --text-color: #2c2c2c;
+  --accent-lilla: #9b4dff;
+  --accent-green: #2dbd0d; /* Verde più scuro per contrasto su light */
+  --accent-glow: rgba(155, 77, 255, 0.3);
+  --green-glow: rgba(45, 189, 13, 0.2);
+}
+
+body {
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  font-family: "Montserrat", sans-serif;
+  transition: all var(--transition-speed);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Layout Container */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  position: relative;
+}
+
+/* Navbar */
+.navbar {
+  background: transparent !important;
+  padding: 2rem 5%;
+}
+
+.navbar-item {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.navbar-item:hover {
+  color: var(--accent-lilla) !important;
+  background: transparent !important;
+}
+
+/* Left Side: Content */
+.hero-text {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hi-text {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.name-text {
+  color: var(--accent-lilla);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.role-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  text-shadow: 0 0 10px var(--green-glow);
+  border-right: 3px solid var(--accent-green);
+  display: inline-block;
+  padding-right: 10px;
+  margin: 1rem 0;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.button.is-lilla {
+  background-color: var(--accent-lilla);
+  color: var(--container-bg);
+  border: none;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.button.is-outline-neon {
+  background: transparent;
+  border: 2px solid var(--accent-lilla);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  font-weight: 700;
+}
+
+/* Right Side: Avatar */
+.hero-image {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.avatar-img {
+  max-width: 100%;
+  height: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 0)
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 0)
+  );
+  filter: drop-shadow(0 0 20px var(--accent-glow));
+}
+
+/* Footer: Socials */
+.social-footer {
+  padding: 2rem 10%;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--accent-lilla);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-lilla);
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  background: var(--accent-lilla);
+  color: var(--container-bg);
+  box-shadow: 0 0 15px var(--accent-lilla);
+  transform: translateY(-5px);
+}
+
+/* Theme Toggle Fixed */
+.theme-toggle {
+  position: fixed;
+  top: 2.2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: var(--accent-lilla);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--container-bg);
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    padding-top: 8rem;
+    text-align: center;
+  }
+  .hero-image {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 80%;
+    margin-top: 3rem;
+  }
+  .hi-text {
+    font-size: 2.5rem;
+  }
+  .social-footer {
+    justify-content: center;
+  }
+}
