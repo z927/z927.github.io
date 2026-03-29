@@ -3,159 +3,284 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Bulma Custom</title>
+    <title>Neon Synth Portfolio</title>
+    <!-- Bulma CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <!-- Google Fonts: Montserrat per un look moderno e pulito -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-      [data-theme="dark"] {
-        --bg-body: #2c2c2c; /* Grigio Background */
-        --bg-card: #1a1a1a; /* Nero Risaltato */
-        --text-main: #ffffff; /* Bianco */
-        --btn-bg: #ffffff; /* Bottone non acceso */
-        --btn-text: #1a1a1a;
-        --lilla: #b19cd9; /* Accent */
+      :root {
+        /* Palette Neon Dark */
+        --bg-color: #3d3d3d; /* Grigio non troppo scuro */
+        --container-bg: #121212; /* Nero non puro */
+        --text-color: #fdfaf6; /* Bianco avorio (non puro) */
+        --accent-lilla: #d4a5ff; /* Lilla Neon */
+        --accent-glow: rgba(212, 165, 255, 0.6);
+        --border-glow: 0 0 10px var(--accent-glow),
+          0 0 20px rgba(212, 165, 255, 0.2);
+        --transition-speed: 0.4s;
       }
 
       [data-theme="light"] {
-        --bg-body: #f5f5f5; /* Grigio chiarissimo */
-        --bg-card: #ffffff; /* Bianco risaltato */
-        --text-main: #1a1a1a; /* Nero */
-        --btn-bg: #1a1a1a; /* Nero per contrasto su light */
-        --btn-text: #ffffff;
-        --lilla: #8a64d1; /* Lilla leggermente più scuro per leggibilità */
+        /* Palette Neon Light */
+        --bg-color: #ececec; /* Grigio chiaro */
+        --container-bg: #ffffff; /* Bianco puro per risaltare */
+        --text-color: #2c2c2c; /* Nero non puro */
+        --accent-lilla: #9b4dff; /* Lilla più profondo */
+        --accent-glow: rgba(155, 77, 255, 0.3);
+        --border-glow: 0 0 8px var(--accent-glow);
       }
 
-      /* Applicazione Stili */
       body {
-        background-color: var(--bg-body);
-        color: var(--text-main);
-        transition: all 0.3s ease;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: "Montserrat", sans-serif;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
         min-height: 100vh;
       }
 
-      .navbar,
-      .footer {
-        background-color: var(--bg-card) !important;
-        border-bottom: 1px solid var(--lilla);
+      /* Navigazione Neon */
+      .navbar {
+        background-color: var(--container-bg) !important;
+        border-bottom: 2px solid var(--accent-lilla);
+        box-shadow: var(--border-glow);
       }
 
-      .navbar-item,
-      .title,
-      .subtitle {
-        color: var(--text-main) !important;
+      .navbar-item {
+        color: var(--text-color) !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
       }
 
-      .card {
-        background-color: var(--bg-card);
-        color: var(--text-main);
-        border: 1px solid rgba(177, 156, 217, 0.2);
-        transition: transform 0.2s;
+      /* Contenitori Neon */
+      .neon-card {
+        background-color: var(--container-bg);
+        border: 2px solid var(--accent-lilla);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: var(--border-glow);
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
-      .card:hover {
-        transform: translateY(-5px);
-        border-color: var(--lilla);
+      .neon-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 20px var(--accent-lilla),
+          0 0 40px rgba(212, 165, 255, 0.4);
       }
 
-      /* Bottone Custom: Bianco (o Nero) -> Lilla */
-      .button.is-custom {
-        background-color: var(--btn-bg);
-        color: var(--btn-text);
+      /* Testo Neon */
+      .neon-title {
+        color: var(--text-color);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        text-shadow: 2px 2px 0px var(--accent-lilla);
+      }
+
+      .has-text-neon {
+        color: var(--accent-lilla) !important;
+        text-shadow: 0 0 5px var(--accent-glow);
+      }
+
+      /* Pulsanti Neon */
+      .button.is-neon {
+        background-color: transparent;
+        border: 2px solid var(--accent-lilla);
+        color: var(--accent-lilla);
+        font-weight: 700;
+        text-transform: uppercase;
+        box-shadow: var(--border-glow);
+        transition: all 0.3s;
+      }
+
+      .button.is-neon:hover {
+        background-color: var(--accent-lilla);
+        color: var(--container-bg);
+        box-shadow: 0 0 30px var(--accent-lilla);
+      }
+
+      /* Theme Toggle Icon Button */
+      .theme-toggle-btn {
+        background: var(--accent-lilla);
         border: none;
-        font-weight: bold;
-      }
-
-      .button.is-custom:hover {
-        background-color: var(--lilla);
-        color: white;
-      }
-
-      .has-text-lilla {
-        color: var(--lilla) !important;
-      }
-
-      /* Switch Theme Button */
-      #theme-toggle {
+        color: var(--container-bg);
+        padding: 10px;
+        border-radius: 50%;
         cursor: pointer;
-        background: transparent;
-        border: 1px solid var(--lilla);
-        color: var(--lilla);
-        border-radius: 5px;
-        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--border-glow);
+        transition: transform 0.3s;
+      }
+
+      .theme-toggle-btn:hover {
+        transform: rotate(15deg) scale(1.1);
+      }
+
+      /* Sezione Hero */
+      .hero-section {
+        padding: 100px 0;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Griglia */
+      .project-tag {
+        display: inline-block;
+        background: var(--accent-lilla);
+        color: var(--container-bg);
+        padding: 2px 10px;
+        font-size: 0.7rem;
+        font-weight: 900;
+        margin-bottom: 10px;
+        border-radius: 4px;
       }
     </style>
   </head>
   <body>
-    <nav class="navbar px-4">
-      <div class="container">
+    <!-- Navigazione -->
+    <nav class="navbar px-5 py-2">
+      <div
+        class="container is-flex is-justify-content-space-between is-align-items-center"
+      >
         <div class="navbar-brand">
-          <a class="navbar-item is-size-4 has-text-weight-bold has-text-lilla"
-            >DEV.IO</a
+          <span
+            class="navbar-item is-size-4 neon-title"
+            style="text-shadow: none"
+            >Retro<span class="has-text-neon">Dev</span></span
           >
         </div>
-        <div class="navbar-end is-flex is-align-items-center">
-          <button id="theme-toggle">Cambia Tema</button>
+        <div class="is-flex is-align-items-center">
+          <a href="#" class="navbar-item is-hidden-mobile mr-4">Lavori</a>
+          <button id="theme-btn" class="theme-toggle-btn">
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
         </div>
       </div>
     </nav>
 
-    <section class="section">
-      <div class="container has-text-centered">
-        <h1 class="title is-1">
-          Benvenuti nel mio <span class="has-text-lilla">Spazio</span>
+    <!-- Hero -->
+    <section class="hero-section has-text-centered">
+      <div class="container px-4">
+        <h1 class="title is-size-1 neon-title mb-6">
+          Cyber <span class="has-text-neon">Portfolio</span>
         </h1>
-        <p class="subtitle mt-2">Design pulito, codice sporco (scherzo!).</p>
-        <div class="buttons is-centered mt-5">
-          <button class="button is-custom is-medium">I Miei Lavori</button>
-          <button
-            class="button is-outline is-light"
-            style="
-              background: transparent;
-              border: 1px solid var(--lilla);
-              color: var(--lilla);
-            "
-          >
-            Contattami
-          </button>
+        <p class="hero-subtitle mb-6">
+          Costruisco esperienze digitali con un'estetica nostalgica e codice
+          moderno. Benvenuti nel mio nodo della rete.
+        </p>
+        <div class="buttons is-centered">
+          <button class="button is-neon is-large">Inizia Missione</button>
         </div>
       </div>
     </section>
 
-    <div class="container px-4">
-      <div class="columns is-centered">
-        <div class="column is-4">
-          <div class="card p-5">
-            <h3 class="title is-4 has-text-lilla">GitHub Project</h3>
-            <p>Un esempio di card che risalta sul background grigio.</p>
+    <!-- Progetti -->
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <!-- Card Progetto 1 -->
+          <div class="column is-4">
+            <div class="neon-card">
+              <span class="project-tag">WEB APP</span>
+              <h3 class="title is-4 has-text-neon mb-3">NeonDrive</h3>
+              <p class="mb-5">
+                Un'interfaccia di gestione file con visualizzazione a griglia al
+                neon.
+              </p>
+              <button class="button is-neon is-small is-fullwidth">
+                Visualizza
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Progetto 2 -->
+          <div class="column is-4">
+            <div class="neon-card">
+              <span class="project-tag">UI KIT</span>
+              <h3 class="title is-4 has-text-neon mb-3">SynthUI</h3>
+              <p class="mb-5">
+                Libreria di componenti React ispirata ai sintetizzatori degli
+                anni '80.
+              </p>
+              <button class="button is-neon is-small is-fullwidth">
+                Visualizza
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Progetto 3 -->
+          <div class="column is-4">
+            <div class="neon-card">
+              <span class="project-tag">GAME</span>
+              <h3 class="title is-4 has-text-neon mb-3">GridRunner</h3>
+              <p class="mb-5">
+                Gioco arcade veloce sviluppato per browser in puro JavaScript.
+              </p>
+              <button class="button is-neon is-small is-fullwidth">
+                Visualizza
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Script per il Cambio Tema -->
     <script>
-      const btn = document.getElementById("theme-toggle");
+      // Inizializza Icone
+      lucide.createIcons();
+
+      const themeBtn = document.getElementById("theme-btn");
+      const themeIcon = document.getElementById("theme-icon");
       const html = document.documentElement;
 
-      btn.addEventListener("click", () => {
-        if (html.getAttribute("data-theme") === "dark") {
-          html.setAttribute("data-theme", "light");
-          btn.innerText = "Modalità Scura 🌙";
+      themeBtn.addEventListener("click", () => {
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        html.setAttribute("data-theme", newTheme);
+
+        // Cambia Icona
+        if (newTheme === "light") {
+          themeIcon.setAttribute("data-lucide", "sun");
+          themeBtn.style.background = "#9b4dff"; // Lilla scuro per contrasto su light
         } else {
-          html.setAttribute("data-theme", "dark");
-          btn.innerText = "Modalità Chiara ☀️";
+          themeIcon.setAttribute("data-lucide", "moon");
+          themeBtn.style.background = "#d4a5ff";
         }
+
+        // Refresh icone Lucide
+        lucide.createIcons();
+
+        // Salva preferenza
+        localStorage.setItem("neon-theme", newTheme);
       });
 
-      // Opzionale: Rileva preferenza sistema al caricamento
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: light)").matches
-      ) {
-        html.setAttribute("data-theme", "light");
-        btn.innerText = "Modalità Scura 🌙";
+      // Carica preferenza salvata
+      const savedTheme = localStorage.getItem("neon-theme");
+      if (savedTheme) {
+        html.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "light") {
+          themeIcon.setAttribute("data-lucide", "sun");
+          lucide.createIcons();
+        }
       }
     </script>
   </body>
