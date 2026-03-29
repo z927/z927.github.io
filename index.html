@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Il Mio Portfolio GitHub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <style>
+      /* Personalizzazione Palette */
+      :root {
+        --bg-gray: #2c2c2c;
+        --card-black: #1a1a1a;
+        --lilla-accent: #b19cd9;
+        --white-soft: #f5f5f5;
+      }
+
+      body {
+        background-color: var(--bg-gray);
+        color: var(--white-soft);
+        min-height: 100vh;
+      }
+
+      .navbar,
+      .footer {
+        background-color: var(--card-black) !important;
+      }
+
+      .navbar-item,
+      .title,
+      .label {
+        color: var(--white-soft) !important;
+      }
+
+      .card {
+        background-color: var(--card-black);
+        border: 1px solid #333;
+        color: var(--white-soft);
+      }
+
+      /* Bottoni: Bianco di base, Lilla al passaggio/active */
+      .button.is-custom {
+        background-color: var(--white-soft);
+        color: var(--card-black);
+        border: none;
+        transition: 0.3s ease;
+      }
+
+      .button.is-custom:hover {
+        background-color: var(--lilla-accent);
+        color: #fff;
+      }
+
+      .has-text-lilla {
+        color: var(--lilla-accent) !important;
+      }
+
+      .hero.is-dark-custom {
+        background-color: var(--card-black);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar shadow">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item is-size-4 has-text-weight-bold has-text-lilla"
+            >DevName</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-1">
+            Benvenuti sul mio <span class="has-text-lilla">GitHub</span>
+          </h1>
+          <p class="subtitle has-text-grey-light">
+            Developer | Designer | Creative Mind
+          </p>
+          <button class="button is-custom is-large">Scopri i Progetti</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="container px-4">
+      <div class="columns is-multiline">
+        <div class="column is-4">
+          <div class="card p-5">
+            <h3 class="title is-4 has-text-lilla">Progetto Alfa</h3>
+            <p>
+              Descrizione del repository. Un'applicazione incredibile costruita
+              con Bulma e amore.
+            </p>
+            <br />
+            <a href="#" class="button is-small is-custom">View Repo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
