@@ -1,8 +1,39 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const useTypewriter = (text: string, speed = 80, delay = 800) => {
+  const [displayed, setDisplayed] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let i = 0;
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          setDisplayed(text.slice(0, i + 1));
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, speed);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [text, speed, delay]);
+
+  useEffect(() => {
+    const blink = setInterval(() => setShowCursor((c) => !c), 530);
+    return () => clearInterval(blink);
+  }, []);
+
+  return { displayed, cursor: showCursor ? "|" : "\u00A0" };
+};
 
 const HeroSection = () => {
+  const { displayed, cursor } = useTypewriter("zasi.dev", 100, 600);
+
   return (
-    <section className="relative min-h-screen flex items-center bg-grid overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-grid overflow-hidden pt-16">
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
@@ -19,7 +50,10 @@ const HeroSection = () => {
           </p>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             Hi, I'm{" "}
-            <span className="text-primary text-glow-green">zasi.dev</span>
+            <span className="text-primary text-glow-green">
+              {displayed}
+              <span className="text-primary/80 font-light">{cursor}</span>
+            </span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-accent text-glow-purple mt-3">
             Software Developer
