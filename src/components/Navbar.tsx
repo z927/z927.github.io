@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useTheme from "@/hooks/use-theme";
 
 const links = [
   { label: "Home", href: "#home" },
