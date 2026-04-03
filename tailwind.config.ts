@@ -13,9 +13,10 @@ export default {
       },
     },
     fontFamily: {
-      heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+      heading: ['"Press Start 2P"', 'cursive'],
       body: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
       mono: ['"JetBrains Mono"', 'monospace'],
+      pixel: ['"Press Start 2P"', 'cursive'],
     },
     extend: {
       colors: {
