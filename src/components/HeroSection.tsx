@@ -48,7 +48,7 @@ const HeroSection = () => {
           <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4">
             &gt; hello_world
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          <h1 className="font-pixel text-3xl md:text-5xl font-bold leading-tight">
             Hi, I'm{" "}
             <span className="text-primary text-glow-green">
               {displayed}
