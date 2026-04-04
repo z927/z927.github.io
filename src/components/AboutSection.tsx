@@ -11,7 +11,7 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">
+          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2 animate-flicker">
             &gt; about_me
           </p>
           <h2 className="text-4xl font-bold mb-8">
