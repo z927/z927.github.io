@@ -38,7 +38,7 @@ const SkillsSection = () => {
             >
               <div className="flex justify-between mb-2">
                 <span className="font-mono text-sm">{skill.name}</span>
-                <span className="font-mono text-sm text-primary">{skill.level}%</span>
+                <span className="font-mono text-sm text-primary animate-flash-glow">{skill.level}%</span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
                 <motion.div

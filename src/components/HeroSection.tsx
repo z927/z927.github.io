@@ -55,7 +55,7 @@ const HeroSection = () => {
               <span className="text-primary/80 font-light">{cursor}</span>
             </span>
           </h1>
-          <h2 className="font-pixel text-sm md:text-lg text-accent text-glow-purple mt-3">
+          <h2 className="font-pixel text-sm md:text-lg text-accent text-glow-purple mt-3 animate-flash-glow">
             Software Developer
           </h2>
           <p className="text-muted-foreground mt-6 max-w-lg text-lg leading-relaxed">
