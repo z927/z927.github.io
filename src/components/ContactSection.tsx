@@ -24,7 +24,7 @@ const ContactSection = () => {
 
           <a
             href="mailto:contact@zasi.dev"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[var(--glow-green)] transition-shadow"
+            className="btn-alive inline-flex items-center gap-2 px-8 py-4 rounded-md bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[var(--glow-green)] transition-shadow"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2" />

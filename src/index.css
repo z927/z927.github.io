@@ -150,6 +150,21 @@
     20%, 24%, 55% { opacity: 0.4; }
   }
 
+  @keyframes btn-glitch {
+    0%, 100% { transform: translate(0) skew(0deg); box-shadow: none; }
+    15% { transform: translate(-2px, 1px) skew(-0.5deg); box-shadow: 3px 0 0 hsl(145 100% 55% / 0.4), -3px 0 0 hsl(280 80% 55% / 0.4); }
+    16% { transform: translate(0) skew(0deg); box-shadow: none; }
+    45% { transform: translate(1px, -1px) skew(0.5deg); box-shadow: -2px 0 0 hsl(280 80% 55% / 0.5), 2px 0 0 hsl(145 100% 55% / 0.5); }
+    46% { transform: translate(0) skew(0deg); box-shadow: none; }
+    78% { transform: translate(-1px, 0) skew(-0.3deg); box-shadow: 2px 0 0 hsl(145 100% 55% / 0.3); }
+    80% { transform: translate(0) skew(0deg); box-shadow: none; }
+  }
+
+  @keyframes btn-surge {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+  }
+
   .animate-flash-glow {
     animation: flash-glow 6s ease-in-out infinite;
   }
@@ -160,5 +175,16 @@
 
   .animate-flicker {
     animation: flicker 4s linear infinite;
+  }
+
+  .btn-alive {
+    animation: btn-glitch 5s ease-in-out infinite, btn-surge 3s ease-in-out infinite;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-alive:hover {
+    animation: none;
+    transform: skew(-2deg) scale(1.05);
+    box-shadow: 0 0 15px hsl(145 100% 55% / 0.5), 0 0 30px hsl(280 80% 55% / 0.3);
   }
 }
