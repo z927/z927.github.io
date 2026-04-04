@@ -66,13 +66,13 @@ const HeroSection = () => {
           <div className="flex gap-4 mt-8">
             <a
               href="mailto:contact@zasi.dev"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-semibold hover:shadow-[var(--glow-green)] transition-shadow"
+              className="btn-alive inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-semibold hover:shadow-[var(--glow-green)] transition-shadow"
             >
               Hire Me
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-accent text-accent font-semibold hover:bg-accent/10 transition-colors"
+              className="btn-alive inline-flex items-center gap-2 px-6 py-3 rounded-md border border-accent text-accent font-semibold hover:bg-accent/10 transition-colors"
             >
               Contact
             </a>
