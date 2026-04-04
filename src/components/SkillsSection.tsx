@@ -19,7 +19,7 @@ const SkillsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">
+          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2 animate-flicker">
             &gt; my_skills
           </p>
           <h2 className="text-4xl font-bold mb-12">
@@ -38,7 +38,7 @@ const SkillsSection = () => {
             >
               <div className="flex justify-between mb-2">
                 <span className="font-mono text-sm">{skill.name}</span>
-                <span className="font-mono text-sm text-primary">{skill.level}%</span>
+                <span className="font-mono text-sm text-primary animate-flash-glow">{skill.level}%</span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
                 <motion.div

@@ -12,7 +12,7 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-xl mx-auto"
         >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">
+          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2 animate-flicker">
             &gt; get_in_touch
           </p>
           <h2 className="text-4xl font-bold mb-4">

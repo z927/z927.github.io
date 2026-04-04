@@ -45,7 +45,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4">
+          <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4 animate-flicker">
             &gt; hello_world
           </p>
           <h1 className="font-pixel text-3xl md:text-5xl font-bold leading-tight">
@@ -55,7 +55,7 @@ const HeroSection = () => {
               <span className="text-primary/80 font-light">{cursor}</span>
             </span>
           </h1>
-          <h2 className="font-pixel text-sm md:text-lg text-accent text-glow-purple mt-3">
+          <h2 className="font-pixel text-sm md:text-lg text-accent text-glow-purple mt-3 animate-flash-glow">
             Software Developer
           </h2>
           <p className="text-muted-foreground mt-6 max-w-lg text-lg leading-relaxed">

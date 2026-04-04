@@ -11,7 +11,7 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">
+          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2 animate-flicker">
             &gt; about_me
           </p>
           <h2 className="text-4xl font-bold mb-8">
@@ -57,7 +57,7 @@ const AboutSection = () => {
                 key={stat.label}
                 className="bg-card border border-border rounded-lg p-5 text-center hover:border-primary/50 transition-colors"
               >
-                <p className="text-3xl font-bold text-primary text-glow-green">{stat.value}</p>
+                <p className="text-3xl font-bold text-primary text-glow-green animate-flash-glow">{stat.value}</p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             ))}
