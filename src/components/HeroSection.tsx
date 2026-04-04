@@ -45,7 +45,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4">
+          <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4 animate-flicker">
             &gt; hello_world
           </p>
           <h1 className="font-pixel text-3xl md:text-5xl font-bold leading-tight">
