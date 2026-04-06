@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import useTheme from "@/hooks/use-theme";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -13,7 +12,6 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { isDark, toggle } = useTheme();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
