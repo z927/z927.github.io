@@ -33,6 +33,12 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/cv"
+            className="text-sm text-primary font-mono font-semibold hover:text-glow-green transition-colors animate-flash-glow"
+          >
+            CV
+          </Link>
           <button
             onClick={toggle}
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
