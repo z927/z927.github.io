@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useTheme from "@/hooks/use-theme";
 
@@ -32,6 +33,12 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/cv"
+            className="text-sm text-primary font-mono font-semibold hover:text-glow-green transition-colors animate-flash-glow"
+          >
+            CV
+          </Link>
           <button
             onClick={toggle}
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
@@ -89,6 +96,13 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
+              <Link
+                to="/cv"
+                onClick={() => setOpen(false)}
+                className="text-sm text-primary font-mono font-semibold hover:text-glow-green transition-colors"
+              >
+                CV
+              </Link>
             </div>
           </motion.div>
         )}
