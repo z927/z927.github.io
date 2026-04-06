@@ -96,6 +96,13 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
+              <Link
+                to="/cv"
+                onClick={() => setOpen(false)}
+                className="text-sm text-primary font-mono font-semibold hover:text-glow-green transition-colors"
+              >
+                CV
+              </Link>
             </div>
           </motion.div>
         )}
