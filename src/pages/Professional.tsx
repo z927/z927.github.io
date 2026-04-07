@@ -70,7 +70,7 @@ const NavbarPro = () => {
           ))}
           <Link
             to="/"
-            className="text-xs tracking-[0.15em] uppercase px-4 py-2 border border-amber-400/30 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-sm"
+            className="text-xs tracking-[0.15em] uppercase px-4 py-2 border border-amber-400/30 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-full"
           >
             ⚡ Cyberpunk
           </Link>
@@ -181,7 +181,7 @@ const Professional = () => {
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3.5 border border-amber-400/30 text-amber-100/80 text-sm tracking-widest uppercase font-medium hover:border-amber-400 hover:text-amber-400 transition-all duration-300"
+                className="px-8 py-3.5 border border-amber-400/30 text-amber-100/80 text-sm tracking-widest uppercase font-medium hover:border-amber-400 hover:text-amber-400 transition-all duration-300 rounded-full"
               >
                 Contact
               </a>
