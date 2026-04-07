@@ -37,6 +37,12 @@ const Navbar = () => {
           >
             CV
           </Link>
+          <Link
+            to="/professional"
+            className="text-sm font-mono px-3 py-1.5 border border-accent/50 text-accent rounded hover:bg-accent/10 transition-all"
+          >
+            ✨ Elegant
+          </Link>
         </div>
 
         <button
