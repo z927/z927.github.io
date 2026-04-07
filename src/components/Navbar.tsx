@@ -37,6 +37,12 @@ const Navbar = () => {
           >
             CV
           </Link>
+          <Link
+            to="/professional"
+            className="text-sm font-mono px-3 py-1.5 border border-accent/50 text-accent rounded hover:bg-accent/10 transition-all"
+          >
+            ✨ Elegant
+          </Link>
         </div>
 
         <button
@@ -76,6 +82,13 @@ const Navbar = () => {
                 className="text-sm text-primary font-mono font-semibold hover:text-glow-green transition-colors"
               >
                 CV
+              </Link>
+              <Link
+                to="/professional"
+                onClick={() => setOpen(false)}
+                className="text-sm font-mono text-accent font-semibold hover:text-glow-purple transition-colors"
+              >
+                ✨ Elegant
               </Link>
             </div>
           </motion.div>
