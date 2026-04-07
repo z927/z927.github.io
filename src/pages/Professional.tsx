@@ -181,7 +181,7 @@ const Professional = () => {
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3.5 border border-amber-400/30 text-amber-100/80 text-sm tracking-widest uppercase font-medium hover:border-amber-400 hover:text-amber-400 transition-all duration-300"
+                className="px-8 py-3.5 border border-amber-400/30 text-amber-100/80 text-sm tracking-widest uppercase font-medium hover:border-amber-400 hover:text-amber-400 transition-all duration-300 rounded-full"
               >
                 Contact
               </a>
