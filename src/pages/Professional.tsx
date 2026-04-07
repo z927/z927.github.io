@@ -70,7 +70,7 @@ const NavbarPro = () => {
           ))}
           <Link
             to="/"
-            className="text-xs tracking-[0.15em] uppercase px-4 py-2 border border-amber-400/30 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-sm"
+            className="text-xs tracking-[0.15em] uppercase px-4 py-2 border border-amber-400/30 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-full"
           >
             ⚡ Cyberpunk
           </Link>
