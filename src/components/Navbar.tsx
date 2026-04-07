@@ -83,6 +83,13 @@ const Navbar = () => {
               >
                 CV
               </Link>
+              <Link
+                to="/professional"
+                onClick={() => setOpen(false)}
+                className="text-sm font-mono text-accent font-semibold hover:text-glow-purple transition-colors"
+              >
+                ✨ Elegant
+              </Link>
             </div>
           </motion.div>
         )}
