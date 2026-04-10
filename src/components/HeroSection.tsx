@@ -48,7 +48,7 @@ const HeroSection = () => {
             Hi, I'm{" "}
             <span className="text-primary text-glow-green">
               {displayed}
-              <span className="text-primary/80 font-light">{cursor}</span>
+              <span className="text-primary/80 font-light inline-block w-[1ch]">{cursor}</span>
             </span>
           </h1>
           <h2 className="font-pixel text-sm md:text-lg text-accent text-glow-purple mt-3 animate-flash-glow">
