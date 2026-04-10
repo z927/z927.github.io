@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import PixelReveal from "./PixelReveal";
 
 const useTypewriter = (text: string, speed = 80, delay = 800) => {
   const [displayed, setDisplayed] = useState("");
@@ -40,11 +40,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left content */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
+        <PixelReveal delay={0.2} cols={10} rows={8}>
           <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4 animate-flicker">
             &gt; hello_world
           </p>
@@ -112,25 +108,22 @@ const HeroSection = () => {
               ☕ Buy me a coffee
             </a>
           </div>
-        </motion.div>
+        </PixelReveal>
 
         {/* Right - Avatar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="flex justify-center lg:justify-end"
-        >
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 blur-lg" />
-            <img
-              src="https://z927.github.io/github-profile.png"
-              alt="zasi.dev avatar"
-              className="relative w-80 h-80 md:w-[420px] md:h-[420px] object-cover rounded-2xl border-2 border-border"
-              loading="eager"
-            />
+        <PixelReveal delay={0.5} cols={12} rows={12}>
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 blur-lg" />
+              <img
+                src="https://z927.github.io/github-profile.png"
+                alt="zasi.dev avatar"
+                className="relative w-80 h-80 md:w-[420px] md:h-[420px] object-cover rounded-2xl border-2 border-border"
+                loading="eager"
+              />
+            </div>
           </div>
-        </motion.div>
+        </PixelReveal>
       </div>
     </section>
   );
