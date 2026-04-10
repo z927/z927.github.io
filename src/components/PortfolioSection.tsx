@@ -62,7 +62,7 @@ const PortfolioSection = () => {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {repos.map((repo, i) => (
-              <PixelReveal key={repo.id} delay={i * 0.06} cols={6} rows={4}>
+              <PixelReveal key={repo.id} delay={i * 0.06} cols={16} rows={10}>
                 <a
                   href={repo.html_url}
                   target="_blank"

@@ -5,7 +5,7 @@ const ContactSection = () => {
     <section id="contact" className="py-24 relative">
       <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
-        <PixelReveal cols={10} rows={6}>
+        <PixelReveal cols={20} rows={14}>
           <div className="text-center max-w-xl mx-auto">
             <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2 animate-flicker">
               &gt; get_in_touch

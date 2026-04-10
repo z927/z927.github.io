@@ -31,7 +31,7 @@ const AboutSection = () => {
             </div>
           </PixelReveal>
 
-          <PixelReveal delay={0.3} cols={4} rows={2}>
+          <PixelReveal delay={0.3} cols={16} rows={10}>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "3+", label: "Years Experience" },

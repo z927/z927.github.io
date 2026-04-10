@@ -46,7 +46,7 @@ const SkillsSection = () => {
           </h2>
         </PixelReveal>
 
-        <PixelReveal delay={0.2} cols={12} rows={4}>
+        <PixelReveal delay={0.2} cols={24} rows={12}>
           <div className="max-w-2xl space-y-6">
             {skills.map((skill, i) => (
               <SkillBar key={skill.name} skill={skill} index={i} />

@@ -40,7 +40,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left content */}
-        <PixelReveal delay={0.2} cols={10} rows={8}>
+        <PixelReveal delay={0.2} cols={20} rows={16}>
           <p className="font-pixel text-primary text-xs tracking-widest uppercase mb-4 animate-flicker">
             &gt; hello_world
           </p>
@@ -111,7 +111,7 @@ const HeroSection = () => {
         </PixelReveal>
 
         {/* Right - Avatar */}
-        <PixelReveal delay={0.5} cols={12} rows={12}>
+        <PixelReveal delay={0.5} cols={24} rows={24}>
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 blur-lg" />
